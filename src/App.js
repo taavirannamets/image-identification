@@ -1,3 +1,5 @@
+import * as mobilenet from '@tensorflow-models/mobilenet'
+
 function App() {
 	return (
 		<div className='App'>
