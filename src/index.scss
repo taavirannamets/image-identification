@@ -20,7 +20,7 @@ code {
 
 .header {
 	text-align: center;
-	font-weight: 600;
+	font-weight: 700;
 	color: midnightblue;
 	background: lightskyblue;
 	font-size: 32px;
@@ -54,7 +54,7 @@ code {
 		width: 100%;
 		padding: 5px 10px;
 		font-size: 16px;
-		border-radius: 0;
+		border-radius: 4px;
 		display: inline-block;
 		border: 1px solid midnightblue;
 		outline: none;
@@ -80,7 +80,7 @@ code {
 		color: white;
 		display: inline-block;
 		border: 0;
-		border-radius: 0;
+		border-radius: 4px;
 		cursor: pointer;
 		outline: none;
 	}
@@ -138,7 +138,7 @@ code {
 
 		.name {
 			font-size: 20px;
-			font-weight: 600;
+			font-weight: 500;
 			text-transform: uppercase;
 		}
 
@@ -156,14 +156,14 @@ code {
 	}
 }
 
-.button {
+.btn {
 	padding: 12px 17px;
 	font-size: 18px;
-	background: lightskyblue;
+	background: midnightblue;
 	color: white;
 	display: inline-block;
 	border: 0;
-	border-radius: 0;
+	border-radius: 4px;
 	cursor: pointer;
 	outline: none;
 }
