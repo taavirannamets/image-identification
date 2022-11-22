@@ -5,8 +5,10 @@ function App() {
 	const [isLoading, setIsLoading] = useState(false)
 	const [model, setModel] = useState(null)
 	const [imageURL, setImageURL] = useState(null)
+	const [results, setResults] = useState([])
 
 	const imageRef = useRef()
+	const textInputRef = useRef()
 
 	const loadModel = async () => {
 		setIsLoading(true)
@@ -34,7 +36,12 @@ function App() {
 
 	const identify = async () => {
 		const results = await model.classify(imageRef.current)
-		console.log(results)
+		setResults(results)
+	}
+
+	const handleChange = e => {
+		setImageURL(e.target.value)
+		setResults([])
 	}
 
 	useEffect(() => {
@@ -44,6 +51,8 @@ function App() {
 	if (isLoading) {
 		return <div>Loading...</div>
 	}
+
+	console.log(results)
 
 	return (
 		<div className='App'>
@@ -55,6 +64,13 @@ function App() {
 					capture='camera'
 					className='upload-input'
 					onChange={uploadImage}
+				/>
+				<input
+					type='text'
+					placeholder='Paste image URL...'
+					crossOrigin='anonymous'
+					ref={textInputRef}
+					onChange={handleChange}
 				/>
 			</div>
 			<div className='main-wrapper'>
@@ -69,6 +85,23 @@ function App() {
 							/>
 						)}
 					</div>
+					{results.length > 0 && (
+						<div className='results-holder'>
+							{results.map((result, index) => {
+								return (
+									<div className='result' key={result.className}>
+										<span className='name'>{result.className}</span>
+										<span className='confidence'>
+											Confidence level: {(result.probability * 100).toFixed(0)}%{' '}
+											{index === 0 && (
+												<span className='best-guess'>Top Result</span>
+											)}
+										</span>
+									</div>
+								)
+							})}
+						</div>
+					)}
 				</div>
 				{imageURL && (
 					<button className='btn' onClick={identify}>
