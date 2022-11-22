@@ -8,13 +8,13 @@
 
 body {
 	margin: 0;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
 
 code {
-	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+	font-family: 'source-code-pro, Menlo, Monaco, Consolas, ' Courier New '',
 		monospace;
 }
 
@@ -27,15 +27,15 @@ code {
 	padding: 16px 0;
 }
 
-.inputHolder {
+.input-holder {
 	margin: 15px 0;
 }
 
-.mainWrapper {
+.main-wrapper {
 	padding: 0 10px;
 }
 
-.mainContent {
+.main-content {
 	display: flex;
 	align-items: center;
 	margin-bottom: 10px;
@@ -45,7 +45,7 @@ code {
 	}
 }
 
-.inputHolder {
+.input-holder {
 	padding: 0 10px;
 	display: flex;
 
@@ -60,7 +60,7 @@ code {
 		outline: none;
 	}
 
-	.uploadInput {
+	.upload-input {
 		width: 0px;
 		height: 0px;
 		visibility: hidden;
@@ -73,7 +73,7 @@ code {
 		padding: 0 20px;
 	}
 
-	.uploadImage {
+	.upload-image {
 		padding: 8px 16px;
 		font-size: 16px;
 		background: midnightblue;
@@ -86,7 +86,7 @@ code {
 	}
 }
 
-.imageHolder {
+.image-holder {
 	width: 60%;
 	display: block;
 	flex: 0 0 60%;
@@ -111,7 +111,7 @@ code {
 	}
 }
 
-.resultsHolder {
+.results-holder {
 	padding: 30px;
 
 	@media (max-width: 800px) {
@@ -168,7 +168,7 @@ code {
 	outline: none;
 }
 
-.recentPredictions {
+.recent-predictions {
 	margin: 40px 0 0;
 	background: lightblue;
 	padding: 10px;
@@ -179,12 +179,12 @@ code {
 		margin: 10px 0;
 	}
 
-	.recentImages {
+	.recent-images {
 		display: flex;
 		flex-wrap: wrap;
 	}
 
-	.recentPrediction {
+	.recent-prediction {
 		flex: 0 0 20%;
 		cursor: pointer;
 
