@@ -32,7 +32,10 @@ function App() {
 		}
 	}
 
-	console.log(imageURL)
+	const identify = async () => {
+		const results = await model.classify(imageRef.current)
+		console.log(results)
+	}
 
 	useEffect(() => {
 		loadModel()
@@ -67,7 +70,11 @@ function App() {
 						)}
 					</div>
 				</div>
-				{imageURL && <button className='btn'>Identify this image</button>}
+				{imageURL && (
+					<button className='btn' onClick={identify}>
+						Identify this image
+					</button>
+				)}
 			</div>
 		</div>
 	)
