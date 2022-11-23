@@ -9,6 +9,7 @@ function App() {
 
 	const imageRef = useRef()
 	const textInputRef = useRef()
+	const fileInputRef = useRef()
 
 	const loadModel = async () => {
 		setIsLoading(true)
@@ -35,6 +36,7 @@ function App() {
 	}
 
 	const identify = async () => {
+		textInputRef.current.value = ''
 		const results = await model.classify(imageRef.current)
 		setResults(results)
 	}
@@ -42,6 +44,10 @@ function App() {
 	const handleChange = e => {
 		setImageURL(e.target.value)
 		setResults([])
+	}
+
+	const triggerUpload = () => {
+		fileInputRef.current.click()
 	}
 
 	useEffect(() => {
@@ -64,7 +70,12 @@ function App() {
 					capture='camera'
 					className='upload-input'
 					onChange={uploadImage}
+					ref={fileInputRef}
 				/>
+				<button className='upload-image' onClick={triggerUpload}>
+					Upload image
+				</button>
+				<span className='or'>or</span>
 				<input
 					type='text'
 					placeholder='Paste image URL...'
