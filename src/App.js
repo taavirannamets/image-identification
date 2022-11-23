@@ -6,6 +6,7 @@ function App() {
 	const [model, setModel] = useState(null)
 	const [imageURL, setImageURL] = useState(null)
 	const [results, setResults] = useState([])
+	const [history, setHistory] = useState([])
 
 	const imageRef = useRef()
 	const textInputRef = useRef()
@@ -53,6 +54,12 @@ function App() {
 	useEffect(() => {
 		loadModel()
 	}, [])
+
+	useEffect(() => {
+		if (imageURL) {
+			setHistory([imageURL, ...history])
+		}
+	}, [imageURL])
 
 	if (isLoading) {
 		return <div>Loading...</div>
@@ -120,6 +127,20 @@ function App() {
 					</button>
 				)}
 			</div>
+			{history.length > 0 && (
+				<div className='recent-predicitions'>
+					<h2>Recent images</h2>
+					<div className='recent-images'>
+						{history.map((image, index) => {
+							return (
+								<div className='recent-prediction' key={`${image}${index}`}>
+									<img src={image} alt='Recent prediction' />
+								</div>
+							)
+						})}
+					</div>
+				</div>
+			)}
 		</div>
 	)
 }
