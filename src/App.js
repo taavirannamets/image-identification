@@ -108,12 +108,14 @@ function App() {
 							{results.map((result, index) => {
 								return (
 									<div className='result' key={result.className}>
-										<span className='name'>{result.className}</span>
 										<span className='confidence'>
-											Confidence level: {(result.probability * 100).toFixed(0)}%{' '}
 											{index === 0 && (
 												<span className='best-guess'>Top Result</span>
 											)}
+										</span>
+										<span className='name'>{result.className}</span>
+										<span className='confidence'>
+											Confidence level: {(result.probability * 100).toFixed(0)}%{' '}
 										</span>
 									</div>
 								)
@@ -128,13 +130,17 @@ function App() {
 				)}
 			</div>
 			{history.length > 0 && (
-				<div className='recent-predicitions'>
+				<div className='recent-predictions'>
 					<h2>Recent images</h2>
 					<div className='recent-images'>
 						{history.map((image, index) => {
 							return (
 								<div className='recent-prediction' key={`${image}${index}`}>
-									<img src={image} alt='Recent prediction' />
+									<img
+										src={image}
+										alt='Recent prediction'
+										onClick={() => setImageURL(image)}
+									/>
 								</div>
 							)
 						})}

@@ -108,6 +108,7 @@ code {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+		border-radius: 4px;
 	}
 }
 
@@ -121,18 +122,20 @@ code {
 
 	.result {
 		border: 1px solid midnightblue;
+		border-radius: 4px;
 		margin: 0 0 10px;
 		padding: 10px;
 
 		&:first-of-type {
-			border-color: midnightblue;
-			background-color: midnightblue;
+			border-color: coral;
+			background-color: bisque;
 
 			.name {
-				color: #fff;
+				color: orangered;
 			}
 			.confidence {
-				color: #dfdfdf;
+				color: orangered;
+				font-weight: 700;
 			}
 		}
 
@@ -146,11 +149,12 @@ code {
 			display: block;
 			font-weight: 300;
 
-			.bestGuess {
-				background: white;
-				padding: 2px 6px;
-				color: midnightblue;
-				margin-left: 3px;
+			.best-guess {
+				background: lightyellow;
+				padding: 1px 6px 2px 6px;
+				color: red;
+				border-radius: 50px;
+				border: 1px solid orangered;
 			}
 		}
 	}
@@ -159,7 +163,7 @@ code {
 .btn {
 	padding: 12px 17px;
 	font-size: 18px;
-	background: midnightblue;
+	background: orangered;
 	color: white;
 	display: inline-block;
 	border: 0;
@@ -170,11 +174,11 @@ code {
 
 .recent-predictions {
 	margin: 40px 0 0;
-	background: lightblue;
+	background: midnightblue;
 	padding: 10px;
 
 	h2 {
-		color: midnightblue;
+		color: white;
 		font-size: 26px;
 		margin: 10px 0;
 	}
@@ -182,6 +186,7 @@ code {
 	.recent-images {
 		display: flex;
 		flex-wrap: wrap;
+		gap: 10px;
 	}
 
 	.recent-prediction {
@@ -201,10 +206,11 @@ code {
 		}
 
 		img {
-			display: block;
-			width: 10% !important;
-			height: 50px;
+			// display: inline-block;
+			width: 100%;
+			height: 200px;
 			object-fit: cover;
+			border-radius: 4px;
 
 			@media (max-width: 700px) {
 				height: 260px;
